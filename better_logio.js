@@ -26,7 +26,12 @@ var BetterLogIo = function() {
       var html = $('<p><span class="label labelcolor'
         + log_file.color + '">' + log_file.node.label + ':'
         + log_file.label + '</span> ' + msg + '</p>');
-      this._dom.find(".console").prepend(html);
+      var console = this._dom.find('.console'),
+          scrollToBottom = console.scrollTop() >= console.get(0).scrollHeight - console.height() - 20;
+      console.append(html);
+      if (scrollToBottom) {
+        console.scrollTop(console.get(0).scrollHeight - console.height());
+      }
     }
     // Apply highlights if enabled
     if (this._searcher && this.highlight) {
