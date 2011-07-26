@@ -39,6 +39,22 @@ var BetterLogIo = function() {
       this._searcher.update_match_count();
     }
   }
+
+  History.prototype.add_lines = function(lines) {
+    var html = "";
+    for (var i = lines.length-1; i >= 0; i--) {
+      var line = lines[i].replace(/</ig,"&lt;").replace(/>/ig,"&gt;");
+      html += "<p>" + ansi2html(line) + "</p>";
+    }
+    var console = this._dom.find(".console");
+    console.html(html).scrollTop(console.get(0).scrollHeight - console.height());
+    // Apply highlights if enabled
+    if (this._searcher && this.highlight) {
+      this._searcher.reset();
+      this._searcher.find_matches();
+      this._searcher.scroll_next();
+    }
+  }
 }
 
 var script = document.createElement("script");
