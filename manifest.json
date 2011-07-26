@@ -1,0 +1,13 @@
+{
+  "name": "Better Log.io UI",
+  "version": "0.1",
+  "description": "Default white fg color and ANSI color support",
+  "content_scripts": [
+    {
+      "matches": [ "http://ginger.sspti.me/*" ],
+      "js": [ "better_logio.js" ],
+      "css": [ "better_logio.css" ],
+      "run_at": "document_end"
+    }
+  ]
+}

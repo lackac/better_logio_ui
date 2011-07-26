@@ -1,0 +1,13 @@
+#screens .screen .console {
+  color: white;
+}
+
+.ansi-1  { font-weight: bold; }
+.ansi-30 { color: darkgray; }
+.ansi-31 { color: red; }
+.ansi-32 { color: green; }
+.ansi-33 { color: yellow; }
+.ansi-34 { color: blue; }
+.ansi-35 { color: magenta; }
+.ansi-36 { color: cyan; }
+.ansi-37 { color: lightgray; }
